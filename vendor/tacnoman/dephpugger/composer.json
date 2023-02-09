@@ -1,0 +1,54 @@
+{
+  "name": "tacnoman/dephpugger",
+  "description": "Debug for php in terminal.",
+  "scripts": {
+    "test":"php vendor/bin/phpunit",
+    "generate:phar": "php create-phar.php",
+    "lint:fix": "php vendor/bin/phpcbf --standard=PSR2 --ignore=vendor .",
+    "publish-docker": "./publish-docker.sh"
+  },
+  "require": {
+    "cboden/ratchet": "0.4.1",
+    "symfony/console": "^4.3.4",
+    "symfony/yaml": "^4.3.4"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.5.0",
+    "phpunit/phpunit": "^8.3.5"
+  },
+  "autoload": {
+    "psr-4" : {
+      "Dephpug\\": "src/Dephpug",
+      "Dephpug\\Console\\": "src/Dephpug/Console/"
+    },
+    "files": [
+      "src/Dephpug/SplashScreen.php",
+      "src/Dephpug/Command/ContinueCommand.php",
+      "src/Dephpug/Command/DbgpCommand.php",
+      "src/Dephpug/Command/EvalCommand.php",
+      "src/Dephpug/Command/GetValueCommand.php",
+      "src/Dephpug/Command/HelpCommand.php",
+      "src/Dephpug/Command/ListCommand.php",
+      "src/Dephpug/Command/ListPreviousCommand.php",
+      "src/Dephpug/Command/NextCommand.php",
+      "src/Dephpug/Command/QuitCommand.php",
+      "src/Dephpug/Command/SetCommand.php",
+      "src/Dephpug/Command/SetValueCommand.php",
+      "src/Dephpug/Command/StepIntoCommand.php",
+      "src/Dephpug/Parser/CloseMessageEvent.php",
+      "src/Dephpug/Parser/ErrorMessageEvent.php",
+      "src/Dephpug/Parser/FilePrinterMessageEvent.php",
+      "src/Dephpug/Parser/InitMessageEvent.php",
+      "src/Dephpug/Parser/PropertyGetMessageEvent.php",
+      "src/Dephpug/Parser/VerboseModeMessageParse.php"
+    ]
+  },
+  "bin": ["bin/dephpugger"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Tacnoman",
+      "email": "renatocassino@gmail.com"
+    }
+  ]
+}
